@@ -17,8 +17,7 @@ def equation(raw_eq: str) -> [str, dict]:
             matrix[key][f'x{index+1}'] = Fraction(value) if mol in l_eq else Fraction(-value)
 
     matrix = [[*value.values()] for value in matrix.values()]
-    matrix = gauss(matrix)
-    matrix = [[j for j in i] for i in matrix]
+    matrix = [[j for j in i] for i in gauss(matrix)]
 
     res = {f'x{j+1}': Fraction(1) for j in range(len(matrix[0]))}
 
